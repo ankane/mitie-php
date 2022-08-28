@@ -19,7 +19,7 @@ abstract class TestCase extends BaseTestCase
         return 'Nat works at GitHub in San Francisco';
     }
 
-    private function modelsPath()
+    protected function modelsPath()
     {
         return getenv('MITIE_MODELS_PATH');
     }

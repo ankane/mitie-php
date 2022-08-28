@@ -1,8 +1,9 @@
 # MITIE PHP
 
-[MITIE](https://github.com/mit-nlp/MITIE) - named-entity recognition - for PHP
+[MITIE](https://github.com/mit-nlp/MITIE) - named-entity recognition and binary relation detection - for PHP
 
 - Finds people, organizations, and locations in text
+- Detects relationships between entities, like `PERSON` was born in `LOCATION`
 
 [![Build Status](https://github.com/ankane/mitie-php/workflows/build/badge.svg?branch=master)](https://github.com/ankane/mitie-php/actions)
 
@@ -19,6 +20,11 @@ And download the pre-trained models for your language:
 - [English](https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2.tar.bz2)
 - [Spanish](https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2-Spanish.zip)
 - [German](https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2-German.tar.bz2)
+
+## Getting Started
+
+- [Named Entity Recognition](#named-entity-recognition)
+- [Binary Relation Detection](#binary-relation-detection)
 
 ## Named Entity Recognition
 
@@ -66,6 +72,40 @@ Get all tags for a model
 
 ```php
 $model->tags();
+```
+
+## Binary Relation Detection
+
+Detect relationships betweens two entities, like:
+
+- `PERSON` was born in `LOCATION`
+- `ORGANIZATION` was founded in `LOCATION`
+- `FILM` was directed by `PERSON`
+
+There are 21 detectors for English. You can find them in the `binary_relations` directory in the model download.
+
+Load a detector
+
+```php
+$detector = new Mitie\BinaryRelationDetector.new('rel_classifier_organization.organization.place_founded.svm');
+```
+
+And create a document
+
+```php
+$doc = $model->doc('Shopify was founded in Ottawa');
+```
+
+Get relations
+
+```php
+$detector->relations($doc);
+```
+
+This returns
+
+```php
+[['first' => 'Shopify', 'second' => 'Ottawa', 'score' => 0.17649169745814464]]
 ```
 
 ## History

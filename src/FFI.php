@@ -104,6 +104,39 @@ class FFI
                     const mitie_named_entity_detections* dets,
                     unsigned long idx
                 );
+
+                typedef struct mitie_binary_relation_detector mitie_binary_relation_detector;
+                typedef struct mitie_binary_relation mitie_binary_relation;
+
+                mitie_binary_relation_detector* mitie_load_binary_relation_detector (
+                    const char* filename
+                );
+
+                const char* mitie_binary_relation_detector_name_string (
+                    const mitie_binary_relation_detector* detector
+                );
+
+                int mitie_entities_overlap (
+                    unsigned long arg1_start,
+                    unsigned long arg1_length,
+                    unsigned long arg2_start,
+                    unsigned long arg2_length
+                );
+
+                mitie_binary_relation* mitie_extract_binary_relation (
+                    const mitie_named_entity_extractor* ner,
+                    char** tokens,
+                    unsigned long arg1_start,
+                    unsigned long arg1_length,
+                    unsigned long arg2_start,
+                    unsigned long arg2_length
+                );
+
+                int mitie_classify_binary_relation (
+                    const mitie_binary_relation_detector* detector,
+                    const mitie_binary_relation* relation,
+                    double* score
+                );
             ', self::$lib ?? Vendor::defaultLib());
         }
 

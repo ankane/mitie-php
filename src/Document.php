@@ -77,7 +77,9 @@ class Document
 
             return $entities;
         } finally {
-            $this->ffi->mitie_free($detections);
+            if (!is_null($detections)) {
+                $this->ffi->mitie_free($detections);
+            }
         }
     }
 }
