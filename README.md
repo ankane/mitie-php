@@ -1,6 +1,6 @@
 # MITIE PHP
 
-[MITIE](https://github.com/mit-nlp/MITIE) - named-entity recognition and binary relation detection - for PHP
+[MITIE](https://github.com/mit-nlp/MITIE) - named-entity recognition, binary relation detection, and text categorization - for PHP
 
 - Finds people, organizations, and locations in text
 - Detects relationships between entities, like `PERSON` was born in `LOCATION`
@@ -25,6 +25,7 @@ And download the pre-trained models for your language:
 
 - [Named Entity Recognition](#named-entity-recognition)
 - [Binary Relation Detection](#binary-relation-detection)
+- [Text Categorization](#text-categorization) [unreleased]
 
 ## Named Entity Recognition
 
@@ -106,6 +107,44 @@ This returns
 
 ```php
 [['first' => 'Shopify', 'second' => 'Ottawa', 'score' => 0.17649169745814464]]
+```
+
+## Text Categorization
+
+Load a model into a trainer
+
+```php
+$trainer = new Mitie\TextCategorizerTrainer('total_word_feature_extractor.dat');
+```
+
+Add labeled text to the trainer
+
+```php
+$trainer->add('This is super cool', 'positive');
+```
+
+Train the model
+
+```php
+$model = $trainer->train();
+```
+
+Save the model
+
+```php
+$model->saveToDisk('text_categorization_model.dat');
+```
+
+Load a saved model
+
+```php
+$model = new Mitie\TextCategorizer('text_categorization_model.dat');
+```
+
+Categorize text
+
+```php
+$model->categorize('What a super nice day');
 ```
 
 ## History

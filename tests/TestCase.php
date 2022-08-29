@@ -23,4 +23,9 @@ abstract class TestCase extends BaseTestCase
     {
         return getenv('MITIE_MODELS_PATH');
     }
+
+    protected function featureExtractorPath()
+    {
+        return $this->modelsPath() . '/total_word_feature_extractor.dat';
+    }
 }

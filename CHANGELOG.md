@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Added support for text categorization
+
 ## 0.1.1 (2022-08-28)
 
 - Added binary relation detection
