@@ -40,6 +40,13 @@ class NER
         return $this->doc($text)->entities();
     }
 
+    public function saveToDisk($filename)
+    {
+        if ($this->ffi->mitie_save_named_entity_extractor($filename, $this->pointer) != 0) {
+            throw new Exception('Unable to save model');
+        }
+    }
+
     public function tokens($text)
     {
         return $this->doc($text)->tokens();

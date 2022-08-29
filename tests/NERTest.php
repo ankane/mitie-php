@@ -43,4 +43,20 @@ final class NERTest extends TestCase
 
         new Mitie\NER('missing.dat');
     }
+
+    public function testSaveToDisk()
+    {
+        $path = tempnam(sys_get_temp_dir(), 'model');
+        $this->model()->saveToDisk($path);
+        $this->assertFileExists($path);
+        unlink($path);
+    }
+
+    public function testSaveToDiskError()
+    {
+        $this->expectException(Mitie\Exception::class);
+        $this->expectExceptionMessage('Unable to save model');
+
+        $this->model()->saveToDisk('missing/ner_model.dat');
+    }
 }
