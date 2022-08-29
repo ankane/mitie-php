@@ -88,7 +88,7 @@ There are 21 detectors for English. You can find them in the `binary_relations` 
 Load a detector
 
 ```php
-$detector = new Mitie\BinaryRelationDetector.new('rel_classifier_organization.organization.place_founded.svm');
+$detector = new Mitie\BinaryRelationDetector('rel_classifier_organization.organization.place_founded.svm');
 ```
 
 And create a document
