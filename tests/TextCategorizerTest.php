@@ -6,7 +6,7 @@ final class TextCategorizerTest extends TestCase
 {
     public function testTokens()
     {
-        $this->markTestSkipped('Not supported yet');
+        $this->markTestSkipped('TODO');
 
         $trainer = new Mitie\TextCategorizerTrainer($this->featureExtractorPath());
         $trainer->add(['This', 'is', 'super', 'cool'], 'positive');
