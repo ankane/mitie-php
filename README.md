@@ -25,7 +25,7 @@ And download the pre-trained models for your language:
 
 - [Named Entity Recognition](#named-entity-recognition)
 - [Binary Relation Detection](#binary-relation-detection)
-- [Text Categorization](#text-categorization) [unreleased]
+- [Text Categorization](#text-categorization)
 
 ## Named Entity Recognition
 

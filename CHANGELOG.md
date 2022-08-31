@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2 (2022-08-30)
 
 - Added support for text categorization
 - Added `saveToDisk` method to `NER`
