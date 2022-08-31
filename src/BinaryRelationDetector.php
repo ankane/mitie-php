@@ -17,7 +17,7 @@ class BinaryRelationDetector
 
     public function __destruct()
     {
-        $this->ffi->mitie_free($this->pointer);
+        FFI::mitie_free($this->pointer);
     }
 
     public function name()
@@ -82,9 +82,7 @@ class BinaryRelationDetector
                 ];
             }
         } finally {
-            if (!is_null($relation)) {
-                $this->ffi->mitie_free($relation);
-            }
+            FFI::mitie_free($relation);
         }
     }
 }

@@ -382,4 +382,11 @@ class FFI
 
         return self::$instance;
     }
+
+    public static function mitie_free($ptr)
+    {
+        if (!is_null($ptr)) {
+            FFI::instance()->mitie_free($ptr);
+        }
+    }
 }

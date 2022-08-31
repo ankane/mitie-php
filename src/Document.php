@@ -17,8 +17,8 @@ class Document
 
     public function __destruct()
     {
-        $this->ffi->mitie_free($this->offsetsPtr);
-        $this->ffi->mitie_free($this->tokensPtr);
+        FFI::mitie_free($this->offsetsPtr);
+        FFI::mitie_free($this->tokensPtr);
     }
 
     public function tokens()
@@ -77,9 +77,7 @@ class Document
 
             return $entities;
         } finally {
-            if (!is_null($detections)) {
-                $this->ffi->mitie_free($detections);
-            }
+            FFI::mitie_free($detections);
         }
     }
 }

@@ -43,10 +43,8 @@ class TextCategorizer
                 'score' => $textScore->cdata
             ];
         } finally {
-            // text_tag must be freed
-            if (!is_null($textTag)) {
-                $this->ffi->mitie_free($textTag);
-            }
+            FFI::mitie_free($tokensPtr);
+            FFI::mitie_free($textTag);
         }
     }
 

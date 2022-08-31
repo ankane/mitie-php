@@ -17,7 +17,7 @@ class NER
 
     public function __destruct()
     {
-        $this->ffi->mitie_free($this->pointer);
+        FFI::mitie_free($this->pointer);
     }
 
     public function tags()

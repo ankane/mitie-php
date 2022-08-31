@@ -22,9 +22,13 @@ class TextCategorizerTrainer
 
     public function add($text, $label)
     {
-        // TODO support tokens
-        $tokensPtr = $this->ffi->mitie_tokenize($text);
-        $this->ffi->mitie_add_text_categorizer_labeled_text($this->pointer, $tokensPtr, $label);
+        try {
+            // TODO support tokens
+            $tokensPtr = $this->ffi->mitie_tokenize($text);
+            $this->ffi->mitie_add_text_categorizer_labeled_text($this->pointer, $tokensPtr, $label);
+        } finally {
+            FFI::mitie_free($tokensPtr);
+        }
     }
 
     public function beta()
