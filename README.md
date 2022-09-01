@@ -75,6 +75,41 @@ Get all tags for a model
 $model->tags();
 ```
 
+### Training [unreleased]
+
+Load an NER model into a trainer
+
+```php
+$trainer = new Mitie\NERTrainer('total_word_feature_extractor.dat');
+```
+
+Create training instances
+
+```php
+$tokens = ['You', 'can', 'do', 'machine', 'learning', 'in', 'PHP', '!'];
+$instance = new Mitie\NERTrainingInstance($tokens);
+$instance->addEntity(3, 4, 'topic');    // machine learning
+$instance->addEntity(6, 6, 'language'); // PHP
+```
+
+Add the training instances to the trainer
+
+```php
+$trainer->add($instance);
+```
+
+Train the model
+
+```php
+$model = $trainer->train();
+```
+
+Save the model
+
+```php
+$model->saveToDisk('ner_model.dat');
+```
+
 ## Binary Relation Detection
 
 Detect relationships betweens two entities, like:
