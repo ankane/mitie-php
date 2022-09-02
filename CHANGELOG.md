@@ -1,6 +1,7 @@
 ## 0.1.3 (unreleased)
 
 - Added support for training NER models
+- Added support for training binary relation detectors
 
 ## 0.1.2 (2022-08-30)
 

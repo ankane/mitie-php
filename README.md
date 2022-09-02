@@ -144,6 +144,34 @@ This returns
 [['first' => 'Shopify', 'second' => 'Ottawa', 'score' => 0.17649169745814464]]
 ```
 
+### Training [unreleased]
+
+Load an NER model into a trainer
+
+```php
+$trainer = new Mitie\BinaryRelationTrainer($model);
+```
+
+Add positive and negative examples to the trainer
+
+```php
+$tokens = ['Shopify', 'was', 'founded', 'in', 'Ottawa'];
+$trainer->addPositiveBinaryRelation($tokens, [0, 0], [4, 4]);
+$trainer->addNegativeBinaryRelation($tokens, [4, 4], [0, 0]);
+```
+
+Train the detector
+
+```php
+$detector = $trainer->train();
+```
+
+Save the detector
+
+```php
+$detector->saveToDisk('binary_relation_detector.svm');
+```
+
 ## Text Categorization
 
 Load a model into a trainer

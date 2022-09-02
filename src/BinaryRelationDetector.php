@@ -4,15 +4,20 @@ namespace Mitie;
 
 class BinaryRelationDetector
 {
-    public function __construct($path)
+    public function __construct($path = null, $pointer = null)
     {
         $this->ffi = FFI::instance();
 
-        if (!file_exists($path)) {
-            throw new \InvalidArgumentException('File does not exist');
+        if (!is_null($path)) {
+            if (!file_exists($path)) {
+                throw new \InvalidArgumentException('File does not exist');
+            }
+            $this->pointer = $this->ffi->mitie_load_binary_relation_detector($path);
+        } elseif (!is_null($pointer)) {
+            $this->pointer = $pointer;
+        } else {
+            throw new \InvalidArgumentException('Must pass either a path or a pointer');
         }
-
-        $this->pointer = $this->ffi->mitie_load_binary_relation_detector($path);
     }
 
     public function __destruct()
