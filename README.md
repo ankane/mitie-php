@@ -75,7 +75,7 @@ Get all tags for a model
 $model->tags();
 ```
 
-### Training [unreleased]
+### Training
 
 Load an NER model into a trainer
 
@@ -144,7 +144,7 @@ This returns
 [['first' => 'Shopify', 'second' => 'Ottawa', 'score' => 0.17649169745814464]]
 ```
 
-### Training [unreleased]
+### Training
 
 Load an NER model into a trainer
 
