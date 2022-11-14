@@ -15,6 +15,12 @@ Run:
 composer require ankane/mitie
 ```
 
+Download the shared library:
+
+```sh
+composer exec -- php -r "require 'vendor/autoload.php'; Mitie\Vendor::check(true);"
+```
+
 And download the pre-trained models for your language:
 
 - [English](https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2.tar.bz2)
