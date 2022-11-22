@@ -9,24 +9,24 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
-    - if: ${{ startsWith(matrix.os, 'windows') }}
-      run: |
-        (Get-Content C:\tools\php\php.ini) -replace ';extension=ffi', 'extension=ffi' | Out-File -encoding ASCII C:\tools\php\php.ini
-        (Get-Content C:\tools\php\php.ini) -replace ';ffi.enable=preload', 'ffi.enable=preload' | Out-File -encoding ASCII C:\tools\php\php.ini
-    - run: composer install
+      - uses: actions/checkout@v3
+      - if: ${{ startsWith(matrix.os, 'windows') }}
+        run: |
+          (Get-Content C:\tools\php\php.ini) -replace ';extension=ffi', 'extension=ffi' | Out-File -encoding ASCII C:\tools\php\php.ini
+          (Get-Content C:\tools\php\php.ini) -replace ';ffi.enable=preload', 'ffi.enable=preload' | Out-File -encoding ASCII C:\tools\php\php.ini
+      - run: composer install
 
-    - uses: actions/cache@v2
-      with:
-        path: MITIE-models
-        key: models
-      id: cache-models
-    - name: Download models
-      if: steps.cache-models.outputs.cache-hit != 'true'
-      run: |
-        curl -Ls -o models.tar.bz2 https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2.tar.bz2
-        tar xfj models.tar.bz2
+      - uses: actions/cache@v2
+        with:
+          path: MITIE-models
+          key: models
+        id: cache-models
+      - name: Download models
+        if: steps.cache-models.outputs.cache-hit != 'true'
+        run: |
+          curl -Ls -o models.tar.bz2 https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2.tar.bz2
+          tar xfj models.tar.bz2
 
-    - run: composer test
-      env:
-        MITIE_MODELS_PATH: MITIE-models/english
+      - run: composer test
+        env:
+          MITIE_MODELS_PATH: MITIE-models/english
