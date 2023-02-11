@@ -4,6 +4,10 @@ namespace Mitie;
 
 class BinaryRelationDetector
 {
+    // TODO make private in 0.2.0
+    public $ffi;
+    public $pointer;
+
     public function __construct($path = null, $pointer = null)
     {
         $this->ffi = FFI::instance();

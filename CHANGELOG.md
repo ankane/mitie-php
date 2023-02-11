@@ -1,3 +1,7 @@
+## 0.1.4 (unreleased)
+
+- Fixed warnings with PHP 8.2
+
 ## 0.1.3 (2022-09-05)
 
 - Added support for training NER models

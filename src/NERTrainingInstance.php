@@ -4,6 +4,10 @@ namespace Mitie;
 
 class NERTrainingInstance
 {
+    // TODO make private in 0.2.0
+    public $ffi;
+    public $pointer;
+
     public function __construct($tokens)
     {
         $this->ffi = FFI::instance();

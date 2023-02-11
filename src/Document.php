@@ -4,6 +4,13 @@ namespace Mitie;
 
 class Document
 {
+    // TODO make private in 0.2.0
+    public $ffi;
+    public $model;
+    public $text;
+    public $offsetsPtr;
+    public $tokensPtr;
+
     public function __construct($model, $text)
     {
         $this->ffi = FFI::instance();
