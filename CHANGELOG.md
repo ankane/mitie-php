@@ -1,3 +1,7 @@
+## 0.2.0 (unreleased)
+
+- Dropped support for PHP < 8.1
+
 ## 0.1.4 (2023-02-11)
 
 - Fixed warnings with PHP 8.2
