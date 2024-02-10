@@ -4,12 +4,12 @@ namespace Mitie;
 
 class Document
 {
-    // TODO make private in 0.2.0
-    public $ffi;
     public $model;
-    public $text;
-    public $offsetsPtr;
     public $tokensPtr;
+
+    private $ffi;
+    private $text;
+    private $offsetsPtr;
 
     public function __construct($model, $text)
     {

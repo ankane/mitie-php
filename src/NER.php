@@ -4,9 +4,9 @@ namespace Mitie;
 
 class NER
 {
-    // TODO make private in 0.2.0
-    public $ffi;
     public $pointer;
+
+    private $ffi;
 
     public function __construct($path = null, $pointer = null)
     {
