@@ -16,7 +16,7 @@ jobs:
           (Get-Content C:\tools\php\php.ini) -replace ';ffi.enable=preload', 'ffi.enable=preload' | Out-File -encoding ASCII C:\tools\php\php.ini
       - run: composer install
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: MITIE-models
           key: models
