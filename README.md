@@ -5,7 +5,7 @@
 - Finds people, organizations, and locations in text
 - Detects relationships between entities, like `PERSON` was born in `LOCATION`
 
-[![Build Status](https://github.com/ankane/mitie-php/workflows/build/badge.svg?branch=master)](https://github.com/ankane/mitie-php/actions)
+[![Build Status](https://github.com/ankane/mitie-php/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/mitie-php/actions)
 
 ## Installation
 
