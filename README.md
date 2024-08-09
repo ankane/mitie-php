@@ -15,10 +15,19 @@ Run:
 composer require ankane/mitie
 ```
 
-Download the shared library:
+Add scripts to `composer.json` to download the shared library:
+
+```json
+    "scripts": {
+        "post-install-cmd": "Mitie\\Vendor::check",
+        "post-update-cmd": "Mitie\\Vendor::check"
+    }
+```
+
+Run:
 
 ```sh
-composer exec -- php -r "require 'vendor/autoload.php'; Mitie\Vendor::check(true);"
+composer install
 ```
 
 And download the pre-trained models for your language:
