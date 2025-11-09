@@ -24,7 +24,7 @@ Add scripts to `composer.json` to download the shared library:
     }
 ```
 
-Run:
+And run:
 
 ```sh
 composer install
