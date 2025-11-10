@@ -11,6 +11,10 @@ class Vendor
             'file' => 'libmitie.so',
             'checksum' => '07b241d857a4bcd7fd97b68a87ccb06fbab70bfc621ee25aa0ea6bd7f905c45c'
         ],
+        'aarch64-linux' => [
+            'file' => 'libmitie.arm64.so',
+            'checksum' => 'a9afeeae37d6e9263a6ffee71ae214d66b65bad9ebff75bde4f7846da2bc0070'
+        ],
         'x86_64-darwin' => [
             'file' => 'libmitie.dylib',
             'checksum' => '8c4fdbe11ef137c401141242af8030628672d64589b5e63ba9c13b7162d29d6c'

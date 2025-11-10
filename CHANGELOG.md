@@ -1,3 +1,7 @@
+## 0.2.1 (unreleased)
+
+- Added ARM shared library for Linux
+
 ## 0.2.0 (2024-06-30)
 
 - Dropped support for PHP < 8.1
