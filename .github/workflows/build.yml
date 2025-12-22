@@ -9,7 +9,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - if: ${{ startsWith(matrix.os, 'macos') }}
         run: brew install composer
       - if: ${{ startsWith(matrix.os, 'windows') }}
@@ -18,7 +18,7 @@ jobs:
           (Get-Content C:\tools\php\php.ini) -replace ';ffi.enable=preload', 'ffi.enable=preload' | Out-File -encoding ASCII C:\tools\php\php.ini
       - run: composer install
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: MITIE-models
           key: models
