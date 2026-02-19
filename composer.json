@@ -31,6 +31,7 @@
     },
     "scripts": {
         "test": "phpunit tests",
+        "valgrind": "valgrind --leak-check=full --trace-children=yes --error-exitcode=1 --quiet phpunit tests",
         "post-install-cmd": "Mitie\\Vendor::check",
         "post-update-cmd": "Mitie\\Vendor::check"
     }
