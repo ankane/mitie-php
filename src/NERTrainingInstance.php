@@ -12,7 +12,7 @@ class NERTrainingInstance
     {
         $this->ffi = FFI::instance();
 
-        $tokensPointer = Utils::arrayToPointer($tokens);
+        [$tokensPointer, $refs] = Utils::arrayToPointer($tokens);
 
         $this->pointer = $this->ffi->mitie_create_ner_training_instance($tokensPointer);
         if (is_null($this->pointer)) {

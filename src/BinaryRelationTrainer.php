@@ -23,7 +23,7 @@ class BinaryRelationTrainer
     {
         $this->checkAdd($tokens, $range1, $range2);
 
-        $tokensPointer = Utils::arrayToPointer($tokens);
+        [$tokensPointer, $refs] = Utils::arrayToPointer($tokens);
         $status = $this->ffi->mitie_add_positive_binary_relation($this->pointer, $tokensPointer, $range1[0], $range1[1] - $range1[0] + 1, $range2[0], $range2[1] - $range2[0] + 1);
         if ($status != 0) {
             throw new Exception('Unable to add binary relation');
@@ -34,7 +34,7 @@ class BinaryRelationTrainer
     {
         $this->checkAdd($tokens, $range1, $range2);
 
-        $tokensPointer = Utils::arrayToPointer($tokens);
+        [$tokensPointer, $refs] = Utils::arrayToPointer($tokens);
         $status = $this->ffi->mitie_add_negative_binary_relation($this->pointer, $tokensPointer, $range1[0], $range1[1] - $range1[0] + 1, $range2[0], $range2[1] - $range2[0] + 1);
         if ($status != 0) {
             throw new Exception('Unable to add binary relation');
