@@ -1,4 +1,4 @@
-## 0.3.0 (unreleased)
+## 0.3.0 (2026-02-27)
 
 - Fixed memory leak
 - Dropped support for PHP < 8.2
