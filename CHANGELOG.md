@@ -1,6 +1,7 @@
-## 0.2.2 (unreleased)
+## 0.3.0 (unreleased)
 
 - Fixed memory leak
+- Dropped support for PHP < 8.2
 
 ## 0.2.1 (2025-11-12)
 
